@@ -92,6 +92,24 @@ class MainVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     }
     
     @IBAction func pokeBallPressed(_ sender: AnyObject) {
+        let loc = CLLocation(latitude: map.centerCoordinate.latitude, longitude: map.centerCoordinate.longitude)
         
+        let rand = arc4random_uniform(151) + 1
+        createSighting(forlocation: loc, withPokemon: Int(rand))
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
