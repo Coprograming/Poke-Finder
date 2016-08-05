@@ -7,4 +7,5 @@ target 'Poke Finder' do
 
   # Pods for Poke Finder
   pod 'Firebase'
+  pod 'Firebase/Database'
 end

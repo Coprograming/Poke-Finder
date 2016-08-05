@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import FirebaseDatabase
 
 class MainVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
@@ -15,12 +16,17 @@ class MainVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
     var mapHasCenteredOnce = false
+    var geoFire: GeoFire!
+    var geoFireRef: FIRDatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         map.delegate = self
         map.userTrackingMode = MKUserTrackingMode.follow
+        
+        let geofireRef = FIRDatabase.database().reference()
+        let geoFire = GeoFire(firebaseRef: geofireRef)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -66,6 +72,23 @@ class MainVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
             annotationView?.image = UIImage(named: "ash")
         }
         return annotationView
+    }
+    
+    func createSighting(forlocation location: CLLocation, withPokemon pokeId: Int){
+        
+        geoFire.setLocation(location, forKey: "\(pokeId)")
+        
+    }
+    
+    func showSightingsOnMap(location: CLLocation){
+        let circleQuery = geoFire!.query(at: location, withRadius: 2.5)
+        
+        _ = circleQuery?.observe(GFEventType.keyEntered, with: { (key, location) in
+            if let key = key, let location = location {
+                let anno = PokeAnnotation(coordinate: location.coordinate, pokemonNumber: Int(key)!)
+                self.map.addAnnotation(anno)
+            }
+        })
     }
     
     @IBAction func pokeBallPressed(_ sender: AnyObject) {
