@@ -14,6 +14,7 @@
 		4A7350A91D55290A00585EB6 /* GFGeoHashQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7350A31D55290A00585EB6 /* GFGeoHashQuery.m */; };
 		4A7350AA1D55290A00585EB6 /* GFQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7350A51D55290A00585EB6 /* GFQuery.m */; };
 		4A7350B31D55347D00585EB6 /* PokeAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7350B21D55347D00585EB6 /* PokeAnnotation.swift */; };
+		4A7350B51D564A1E00585EB6 /* PokePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7350B41D564A1E00585EB6 /* PokePicker.swift */; };
 		4AF325CE1D54186C006A5CF0 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF325CD1D54186C006A5CF0 /* MainVC.swift */; };
 		4AF789051D540BD5008252FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF789041D540BD5008252FD /* AppDelegate.swift */; };
 		4AF7890A1D540BD5008252FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AF789081D540BD5008252FD /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 		4A7350A51D55290A00585EB6 /* GFQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFQuery.m; sourceTree = "<group>"; };
 		4A7350B11D552B2700585EB6 /* PokeFinder-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PokeFinder-Bridging-Header.h"; sourceTree = "<group>"; };
 		4A7350B21D55347D00585EB6 /* PokeAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokeAnnotation.swift; sourceTree = "<group>"; };
+		4A7350B41D564A1E00585EB6 /* PokePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokePicker.swift; sourceTree = "<group>"; };
 		4AF325CD1D54186C006A5CF0 /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		4AF789011D540BD5008252FD /* Poke Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Poke Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AF789041D540BD5008252FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				4AF325CD1D54186C006A5CF0 /* MainVC.swift */,
+				4A7350B41D564A1E00585EB6 /* PokePicker.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				4AF789051D540BD5008252FD /* AppDelegate.swift in Sources */,
 				4A7350A81D55290A00585EB6 /* GFGeoHash.m in Sources */,
 				4AF325CE1D54186C006A5CF0 /* MainVC.swift in Sources */,
+				4A7350B51D564A1E00585EB6 /* PokePicker.swift in Sources */,
 				4A7350A61D55290A00585EB6 /* GeoFire.m in Sources */,
 				4A7350A91D55290A00585EB6 /* GFGeoHashQuery.m in Sources */,
 				4A7350AA1D55290A00585EB6 /* GFQuery.m in Sources */,
