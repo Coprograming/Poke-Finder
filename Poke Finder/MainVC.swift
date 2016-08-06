@@ -25,8 +25,8 @@ class MainVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
         map.delegate = self
         map.userTrackingMode = MKUserTrackingMode.follow
         
-        let geofireRef = FIRDatabase.database().reference()
-        let geoFire = GeoFire(firebaseRef: geofireRef)
+        geoFireRef = FIRDatabase.database().reference()
+        geoFire = GeoFire(firebaseRef: geoFireRef)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -64,14 +64,38 @@ class MainVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        
+        let annoIdentifier = "Pokemon"
         var annotationView: MKAnnotationView?
         
         if annotation.isKind(of: MKUserLocation.self) {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "User")
             annotationView?.image = UIImage(named: "ash")
+        } else if let deqAnno = map.dequeueReusableAnnotationView(withIdentifier: annoIdentifier) {
+            annotationView = deqAnno
+            annotationView?.annotation = annotation
+        } else {
+            let av = MKAnnotationView(annotation: annotation, reuseIdentifier: annoIdentifier)
+            
+            av.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            annotationView = av
         }
+        
+        if let annotationView = annotationView, let anno = annotation as? PokeAnnotation {
+            annotationView.canShowCallout = true
+            annotationView.image = UIImage(named: "\(anno.pokemonNumber)")
+            let btn = UIButton()
+            btn.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+            btn.setImage(UIImage(named: "map"), for: .normal)
+            annotationView.rightCalloutAccessoryView = btn
+        }
+        
         return annotationView
+    }
+    
+    func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+        let loc = CLLocation(latitude: map.centerCoordinate.latitude , longitude: map.centerCoordinate.longitude)
+        
+        showSightingsOnMap(location: loc)
     }
     
     func createSighting(forlocation location: CLLocation, withPokemon pokeId: Int){
@@ -89,6 +113,23 @@ class MainVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
                 self.map.addAnnotation(anno)
             }
         })
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if let anno = view.annotation as? PokeAnnotation {
+            var place: MKPlacemark!
+            if #available(iOS 10.0, *) {
+                place = MKPlacemark(coordinate: anno.coordinate)
+            } else {
+                place = MKPlacemark(coordinate: anno.coordinate, addressDictionary: nil)
+            }
+            let destination = MKMapItem(placemark: place)
+            destination.name = "Pokemon Sighting"
+            let regionDistance: CLLocationDistance = 1000
+            let regionSpan = MKCoordinateRegionMakeWithDistance(anno.coordinate, regionDistance, regionDistance)
+            let options = [MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center), MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span), MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+            MKMapItem.openMaps(with: [destination], launchOptions: options)
+        }
     }
     
     @IBAction func pokeBallPressed(_ sender: AnyObject) {
