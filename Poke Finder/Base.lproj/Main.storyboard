@@ -19,9 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="XJB-IZ-TOx">
-                                <frame key="frameInset" width="1000" height="1000"/>
-                            </mapView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="XJB-IZ-TOx"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yak-X0-bLt">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="56" id="vNW-DK-fsQ"/>
@@ -37,6 +35,7 @@
                         <constraints>
                             <constraint firstItem="yak-X0-bLt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="2R4-lI-hcL"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="yak-X0-bLt" secondAttribute="bottom" constant="10" id="6Es-NN-edl"/>
+                            <constraint firstAttribute="bottom" secondItem="XJB-IZ-TOx" secondAttribute="bottom" id="UGV-JO-Qbd"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="XJB-IZ-TOx" secondAttribute="bottom" id="jO1-Ja-y2P"/>
                             <constraint firstItem="XJB-IZ-TOx" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="jbG-W1-01T"/>
                             <constraint firstAttribute="trailing" secondItem="XJB-IZ-TOx" secondAttribute="trailing" id="qXK-9F-Q3p"/>
@@ -45,12 +44,12 @@
                     </view>
                     <connections>
                         <outlet property="map" destination="XJB-IZ-TOx" id="cp6-Il-y0R"/>
-                        <segue destination="ToG-hc-vZ0" kind="showDetail" identifier="PokePicker" id="35d-xY-Mk2"/>
+                        <segue destination="ToG-hc-vZ0" kind="showDetail" identifier="PokePicker" id="gmu-BI-GQH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
+            <point key="canvasLocation" x="179.5" y="138.5"/>
         </scene>
         <!--Poke Picker-->
         <scene sceneID="q3D-9T-dGU">
@@ -64,7 +63,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="12" translatesAutoresizingMaskIntoConstraints="NO" id="Muk-pH-PJ7">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="Muk-pH-PJ7">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="117" id="gY6-sp-WR5"/>
                                 </constraints>
@@ -84,6 +83,9 @@
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="cancelPressed:" destination="ToG-hc-vZ0" eventType="touchUpInside" id="sxu-9n-180"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n3p-uK-aWt">
                                 <constraints>
@@ -93,6 +95,9 @@
                                 <state key="normal" title="Add!">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="addPressed:" destination="ToG-hc-vZ0" eventType="touchUpInside" id="huh-6L-8Sz"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.28652194080656551" green="0.72840544871794877" blue="0.31955722526644004" alpha="1" colorSpace="calibratedRGB"/>
@@ -110,6 +115,10 @@
                             <constraint firstItem="A14-13-hv6" firstAttribute="top" secondItem="hIy-iM-0Ra" secondAttribute="bottom" constant="8" id="wm3-na-59x"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="picker" destination="Nmp-zJ-VIY" id="euP-1Q-b2w"/>
+                        <outlet property="pokeImg" destination="Muk-pH-PJ7" id="xI1-Ol-sOW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RJi-qO-FUn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -117,7 +126,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="12" width="120" height="120"/>
+        <image name="1" width="120" height="120"/>
         <image name="pokeball" width="97" height="96"/>
     </resources>
 </document>
