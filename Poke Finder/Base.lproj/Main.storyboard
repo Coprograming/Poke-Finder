@@ -84,6 +84,9 @@
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="cancelPressed:" destination="ToG-hc-vZ0" eventType="touchUpInside" id="JV8-iu-Jeb"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n3p-uK-aWt">
                                 <constraints>
@@ -93,6 +96,9 @@
                                 <state key="normal" title="Add!">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="addPressed:" destination="ToG-hc-vZ0" eventType="touchUpInside" id="Jt2-h5-PuI"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.28652194080656551" green="0.72840544871794877" blue="0.31955722526644004" alpha="1" colorSpace="calibratedRGB"/>
@@ -110,6 +116,10 @@
                             <constraint firstItem="A14-13-hv6" firstAttribute="top" secondItem="hIy-iM-0Ra" secondAttribute="bottom" constant="8" id="wm3-na-59x"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="picker" destination="Nmp-zJ-VIY" id="IWw-tc-whk"/>
+                        <outlet property="pokeImg" destination="Muk-pH-PJ7" id="tiw-Fj-tNM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RJi-qO-FUn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

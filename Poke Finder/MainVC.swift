@@ -137,6 +137,7 @@ class MainVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
         
         let rand = arc4random_uniform(151) + 1
         createSighting(forlocation: loc, withPokemon: Int(rand))
+        performSegue(withIdentifier: "PokePicker", sender: nil)
     }
 }
 
