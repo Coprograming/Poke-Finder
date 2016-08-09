@@ -15,7 +15,6 @@
 		4A7350AA1D55290A00585EB6 /* GFQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7350A51D55290A00585EB6 /* GFQuery.m */; };
 		4A7350B31D55347D00585EB6 /* PokeAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7350B21D55347D00585EB6 /* PokeAnnotation.swift */; };
 		4A7350B51D564A1E00585EB6 /* PokePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7350B41D564A1E00585EB6 /* PokePicker.swift */; };
-		4A7350BA1D569B5000585EB6 /* PokePickerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7350B91D569B5000585EB6 /* PokePickerData.swift */; };
 		4AF325CE1D54186C006A5CF0 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF325CD1D54186C006A5CF0 /* MainVC.swift */; };
 		4AF789051D540BD5008252FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF789041D540BD5008252FD /* AppDelegate.swift */; };
 		4AF7890A1D540BD5008252FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AF789081D540BD5008252FD /* Main.storyboard */; };
@@ -44,7 +43,6 @@
 		4A7350B11D552B2700585EB6 /* PokeFinder-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PokeFinder-Bridging-Header.h"; sourceTree = "<group>"; };
 		4A7350B21D55347D00585EB6 /* PokeAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokeAnnotation.swift; sourceTree = "<group>"; };
 		4A7350B41D564A1E00585EB6 /* PokePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokePicker.swift; sourceTree = "<group>"; };
-		4A7350B91D569B5000585EB6 /* PokePickerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokePickerData.swift; sourceTree = "<group>"; };
 		4AF325CD1D54186C006A5CF0 /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		4AF789011D540BD5008252FD /* Poke Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Poke Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AF789041D540BD5008252FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -143,14 +141,6 @@
 			path = Implementation;
 			sourceTree = "<group>";
 		};
-		4A7350B61D564D2800585EB6 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				4A7350B91D569B5000585EB6 /* PokePickerData.swift */,
-			);
-			name = Extensions;
-			sourceTree = "<group>";
-		};
 		4AF788F81D540BD5008252FD = {
 			isa = PBXGroup;
 			children = (
@@ -172,7 +162,6 @@
 		4AF789031D540BD5008252FD /* Poke Finder */ = {
 			isa = PBXGroup;
 			children = (
-				4A7350B61D564D2800585EB6 /* Extensions */,
 				4A7350931D5525A800585EB6 /* Resources */,
 				4A7350921D5525A700585EB6 /* Model */,
 				4A7350911D5525A500585EB6 /* View */,
@@ -331,7 +320,6 @@
 				4A7350B31D55347D00585EB6 /* PokeAnnotation.swift in Sources */,
 				4AF789051D540BD5008252FD /* AppDelegate.swift in Sources */,
 				4A7350A81D55290A00585EB6 /* GFGeoHash.m in Sources */,
-				4A7350BA1D569B5000585EB6 /* PokePickerData.swift in Sources */,
 				4AF325CE1D54186C006A5CF0 /* MainVC.swift in Sources */,
 				4A7350B51D564A1E00585EB6 /* PokePicker.swift in Sources */,
 				4A7350A61D55290A00585EB6 /* GeoFire.m in Sources */,
@@ -457,7 +445,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Poke Finder/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.coprograming.com.Poke-Finder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -472,7 +460,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Poke Finder/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.coprograming.com.Poke-Finder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
