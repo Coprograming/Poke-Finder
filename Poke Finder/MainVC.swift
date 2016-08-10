@@ -153,9 +153,10 @@ class MainVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "PokePicker"{
-        if let destination = segue.destination as? PokePicker {
+            if let destination = segue.destination as? PokePicker {
                 destination.mat = map
-        }
+                destination.geoFire = self.geoFire
+            }
         }
     }
     
