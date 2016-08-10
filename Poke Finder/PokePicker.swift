@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import MapKit
+import FirebaseDatabase
 
 class PokePicker: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     // MARK: - @IBOutlets
@@ -19,6 +21,8 @@ class PokePicker: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
     var num: Int!
     var mainVc: MainVC!
     var pokemonName = [pokemon]
+    var geoFire: GeoFire!
+    var mat: MKMapView!
     
     /*private var _partyRock: PokeId!
     
@@ -59,13 +63,8 @@ class PokePicker: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
-        let value = pokemon[row]
-        print("KC: \(value)")
-        let intValue = pokemon.index(of: value)
-        let num = PokeId(pokeId: intValue)
-        print("KC:num = \(num)")
-        
+        print("\(row)")
+        num = row
     }
     
     func leaveScreen() {
@@ -79,22 +78,22 @@ class PokePicker: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
             }
         }
     }
-    
-    func switcher() -> Bool {
-        func addPressed(_ sender: AnyObject) {
-            performSegue(withIdentifier: "ShowMainVC", sender: num)
-        }
+    func createSighting(forlocation location: CLLocation, withPokemon pokeId: Int){
+        geoFire.setLocation(location, forKey: "\(pokeId)")
         
-        return true
     }
-
 
     // MARK: - @IBActions
     
     @IBAction func cancelPressed(_ sender: AnyObject) {
         leaveScreen()
-        mainVc.selectedRow()
     }
-    
+    @IBAction func addPressed(_ sender: AnyObject) {
+        performSegue(withIdentifier: "ShowMainVC", sender: nil)
+        let loc = CLLocation(latitude: mat.centerCoordinate.latitude, longitude: mat.centerCoordinate.longitude)
+        
+        createSighting(forlocation: loc , withPokemon: Int(num))
+        
+    }
     
 }

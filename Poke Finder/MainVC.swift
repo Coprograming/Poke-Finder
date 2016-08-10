@@ -12,7 +12,10 @@ import FirebaseDatabase
 
 class MainVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
+    //MARK: - @IBOutlets
     @IBOutlet weak var map: MKMapView!
+    
+    //MARK: - Variables
     
     let locationManager = CLLocationManager()
     var mapHasCenteredOnce = false
@@ -31,6 +34,8 @@ class MainVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
         }
     }
     
+    //MARK: - Initilizers
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,6 +49,8 @@ class MainVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     override func viewDidAppear(_ animated: Bool) {
         locationAuthStatus()
     }
+    
+    //MARK: - Functions
     
     func locationAuthStatus() {
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
@@ -143,15 +150,22 @@ class MainVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
             MKMapItem.openMaps(with: [destination], launchOptions: options)
         }
     }
-    func selectedRow() {
-        
-            let loc = CLLocation(latitude: map.centerCoordinate.latitude, longitude: map.centerCoordinate.longitude)
-            createSighting(forlocation: loc, withPokemon: values.pokeId)
-        
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "PokePicker"{
+        if let destination = segue.destination as? PokePicker {
+                destination.mat = map
+        }
+        }
     }
+    
+    //MARK: - @IBOutlets
+    
     @IBAction func pokeBallPressed(_ sender: AnyObject) {
-        performSegue(withIdentifier: "PokePicker", sender: nil)
+        performSegue(withIdentifier: "PokePicker", sender: map)
+        
     }
+    
 }
 
 

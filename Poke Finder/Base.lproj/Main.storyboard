@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11185.3" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11191" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11151.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11156"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,9 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="XJB-IZ-TOx">
-                                <frame key="frameInset" width="1000" height="1000"/>
-                            </mapView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="XJB-IZ-TOx"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yak-X0-bLt">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="56" id="vNW-DK-fsQ"/>
@@ -37,8 +35,10 @@
                         <constraints>
                             <constraint firstItem="yak-X0-bLt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="2R4-lI-hcL"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="yak-X0-bLt" secondAttribute="bottom" constant="10" id="6Es-NN-edl"/>
+                            <constraint firstAttribute="bottom" secondItem="XJB-IZ-TOx" secondAttribute="bottom" id="HQ2-PO-PyF"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="XJB-IZ-TOx" secondAttribute="bottom" id="jO1-Ja-y2P"/>
                             <constraint firstItem="XJB-IZ-TOx" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="jbG-W1-01T"/>
+                            <constraint firstAttribute="trailing" secondItem="XJB-IZ-TOx" secondAttribute="trailing" id="nfD-BO-JpJ"/>
                             <constraint firstAttribute="trailing" secondItem="XJB-IZ-TOx" secondAttribute="trailing" id="qXK-9F-Q3p"/>
                             <constraint firstItem="XJB-IZ-TOx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="vHA-HM-AWD"/>
                         </constraints>
@@ -97,7 +97,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="addPressed:" destination="ToG-hc-vZ0" eventType="touchUpInside" id="Jt2-h5-PuI"/>
+                                    <action selector="addPressed:" destination="ToG-hc-vZ0" eventType="touchUpInside" id="N3x-3q-62m"/>
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="ShowMainVC" id="YLs-6j-rgm"/>
                                 </connections>
                             </button>
