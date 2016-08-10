@@ -18,6 +18,18 @@ class MainVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     var mapHasCenteredOnce = false
     var geoFire: GeoFire!
     var geoFireRef: FIRDatabaseReference!
+    var pokeId = [PokeId]()
+    var pokePicker: PokePicker!
+    
+    private var _value: PokeId!
+    
+    var values: PokeId {
+        get {
+            return _value
+        } set {
+            _value = newValue
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -131,12 +143,13 @@ class MainVC: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
             MKMapItem.openMaps(with: [destination], launchOptions: options)
         }
     }
-    
-    @IBAction func pokeBallPressed(_ sender: AnyObject) {
-        let loc = CLLocation(latitude: map.centerCoordinate.latitude, longitude: map.centerCoordinate.longitude)
+    func selectedRow() {
         
-        let rand = arc4random_uniform(151) + 1
-        createSighting(forlocation: loc, withPokemon: Int(rand))
+            let loc = CLLocation(latitude: map.centerCoordinate.latitude, longitude: map.centerCoordinate.longitude)
+            createSighting(forlocation: loc, withPokemon: values.pokeId)
+        
+    }
+    @IBAction func pokeBallPressed(_ sender: AnyObject) {
         performSegue(withIdentifier: "PokePicker", sender: nil)
     }
 }

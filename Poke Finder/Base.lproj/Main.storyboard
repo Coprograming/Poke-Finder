@@ -98,6 +98,7 @@
                                 </state>
                                 <connections>
                                     <action selector="addPressed:" destination="ToG-hc-vZ0" eventType="touchUpInside" id="Jt2-h5-PuI"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowMainVC" id="YLs-6j-rgm"/>
                                 </connections>
                             </button>
                         </subviews>

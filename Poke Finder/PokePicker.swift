@@ -18,6 +18,17 @@ class PokePicker: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
     
     var num: Int!
     var mainVc: MainVC!
+    var pokemonName = [pokemon]
+    
+    /*private var _partyRock: PokeId!
+    
+    var partyRock: PokeId {
+        get {
+            return _partyRock
+        } set {
+            _partyRock = newValue
+        }
+    }*/
     
     //MARK: - Initilizers
     override func viewDidLoad() {
@@ -51,14 +62,9 @@ class PokePicker: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
         
         let value = pokemon[row]
         print("KC: \(value)")
-        let number = pokemon.index(of: "\(value)")
-        print("KC:num = \(number)")
-        let sumnum = number
-        if sumnum == nil {
-            print("KC: num is nil")
-        } else {
-            num = number! + 1
-        }
+        let intValue = pokemon.index(of: value)
+        let num = PokeId(pokeId: intValue)
+        print("KC:num = \(num)")
         
     }
     
@@ -66,21 +72,29 @@ class PokePicker: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
         dismiss(animated: true, completion: nil)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let destination = segue.destination as? MainVC {
+            if let value = sender as? PokeId {
+                destination.values = value
+            }
+        }
+    }
+    
+    func switcher() -> Bool {
+        func addPressed(_ sender: AnyObject) {
+            performSegue(withIdentifier: "ShowMainVC", sender: num)
+        }
+        
+        return true
+    }
+
 
     // MARK: - @IBActions
     
     @IBAction func cancelPressed(_ sender: AnyObject) {
         leaveScreen()
+        mainVc.selectedRow()
     }
     
-    @IBAction func addPressed(_ sender: AnyObject) {
-        if num == nil {
-            print("KC: num = nil")
-        } else {
-            let loc = CLLocation(latitude: mainVc.map.centerCoordinate.latitude, longitude: mainVc.map.centerCoordinate.longitude)
-            mainVc.createSighting(forlocation: loc , withPokemon: Int(num))
-            
-        }
-        leaveScreen()
-    }
+    
 }
